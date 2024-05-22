@@ -1,0 +1,148 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  .Container-padding{
+    padding: 3rem 0;
+  }
+  .Title{
+    padding-bottom: 2rem;
+    height: 20%;
+  }
+  .Title h1{
+    font-weight: bold;
+  }
+  
+  /*-------------------------------# Hero #-------------------------------*/
+  .Hero,
+  .Hero2 {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+  .Hero2 {
+    background-color: #00000078;
+  }
+  .Hero_content_bg{
+    background-color: #0000008f;
+    padding: 1rem;
+  }
+  #Hero_content {
+    color: #ffffff;
+    text-align: center;
+  }
+  /* #Hero_content h3{
+    display: inline-block;
+  } */
+  #Hero_content a{
+    margin-top: 1rem;
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  /*-------------------------------# About #-------------------------------*/
+  .about{
+    height: 80%;
+  }
+  .about .row{
+    height: 100%;
+  }
+  .about .About_Image img{
+    height: 15rem;
+  }
+  .about .About_Image{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .about .About_Text{
+    margin-top: 3rem;
+    text-align: justify;
+  }
+  .about .About_Text h5{
+    color: #000000ab;
+    font-weight: initial;
+  }
+  .progress{
+    height: 0.5rem;
+  }
+  /*-------------------------------# Certificate #-------------------------------*/
+  .Contact, .Certificate{
+    background-color: black;
+    color: #ffffff;
+  }
+  .carousel-caption {
+    right: 0%;
+    left: 0%;
+  }
+  .carousel-item img{
+    max-height: 30rem;
+  }
+  .carousel-caption button{
+    font-weight: bold;
+    width: 10rem;
+  }
+  /*-------------------------------# Contact #-------------------------------*/
+  .Contact {
+    padding-bottom: 0;
+  }
+  .form-control{
+    background-color: #dbdbdbe8;
+  }
+  .address{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #Gmail{
+    text-decoration: none;
+    color: #ffffff;
+  }
+  .social{
+    margin: 1rem 0;
+  }
+  .social i{
+    font-size: 1.6rem;
+    padding-right: 0.5rem;
+    cursor: pointer;
+    color: aqua;
+  }
+  .social i:hover{
+    color: rgb(255, 255, 255);
+  }
+  /*-------------------------------# Footer #-------------------------------*/
+footer {
+    text-align: center;
+    color: #fff;
+    background: #131516;
+}
+
+footer .copyright {
+  margin-bottom: 0.3rem;
+}
+
+footer .credits {
+  margin-bottom: 0;
+}
+
+footer .credits a {
+  color: #fff;
+}
+
+
+.fa-circle-arrow-up{
+  color: aqua;
+  font-size: 2rem;
+  cursor: pointer;
+  position: fixed;
+  bottom: 3.3rem;
+  right: 1rem;
+  z-index: 2;
+}
+.fa-circle-arrow-up:hover{
+  color: rgb(255, 255, 255);
+}
