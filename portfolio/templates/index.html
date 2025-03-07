@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h1 class="animate-on-scroll">Mohammad Siam Ahmed Rana</h1>
+                <p class="lead animate-on-scroll">Data Scientist | Machine Learning Engineer | AI Enthusiast</p>
+                <div class="mt-5 animate-on-scroll">
+                    <a href="#about" class="btn btn-primary btn-lg me-3">Learn More</a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-outline-light btn-lg">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section Preview -->
+<section id="about" class="py-5">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="row align-items-center">
+            <div class="col-md-5 mb-4 mb-md-0">
+                <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Mohammad Siam Ahmed Rana" class="img-fluid about-img animate-on-scroll">
+            </div>
+            <div class="col-md-7">
+                <div class="about-content animate-on-scroll">
+                    <p class="lead">I am a passionate Data Scientist with expertise in machine learning, statistical analysis, and data visualization.</p>
+                    <p>With a strong background in mathematics and computer science, I specialize in developing data-driven solutions that help businesses make informed decisions. My goal is to transform complex data into actionable insights.</p>
+                    <div class="mt-4">
+                        <a href="{{ url_for('about') }}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section Preview -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title">My Skills</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card skill-card text-center p-4 animate-on-scroll">
+                    <div class="card-body">
+                        <i class="fas fa-brain skill-icon"></i>
+                        <h4 class="card-title">Machine Learning</h4>
+                        <p class="card-text">Expertise in supervised and unsupervised learning algorithms, deep learning, and neural networks.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card skill-card text-center p-4 animate-on-scroll">
+                    <div class="card-body">
+                        <i class="fas fa-chart-line skill-icon"></i>
+                        <h4 class="card-title">Data Analysis</h4>
+                        <p class="card-text">Proficient in statistical analysis, data cleaning, and exploratory data analysis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card skill-card text-center p-4 animate-on-scroll">
+                    <div class="card-body">
+                        <i class="fas fa-code skill-icon"></i>
+                        <h4 class="card-title">Programming</h4>
+                        <p class="card-text">Strong skills in Python, R, SQL, and various data science libraries and frameworks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ url_for('skills') }}" class="btn btn-primary">View All Skills</a>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section Preview -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card project-card animate-on-scroll">
+                    <img src="{{ url_for('static', filename='images/project1.jpg') }}" class="card-img-top project-img" alt="Project 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Predictive Analytics Dashboard</h5>
+                        <p class="card-text">A machine learning-based dashboard for sales forecasting and customer segmentation.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">Dash</span>
+                        </div>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-3">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card project-card animate-on-scroll">
+                    <img src="{{ url_for('static', filename='images/project2.jpg') }}" class="card-img-top project-img" alt="Project 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Natural Language Processing Tool</h5>
+                        <p class="card-text">A sentiment analysis and text classification tool for customer feedback analysis.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">NLP</span>
+                            <span class="project-tag">BERT</span>
+                            <span class="project-tag">Flask</span>
+                        </div>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-3">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card project-card animate-on-scroll">
+                    <img src="{{ url_for('static', filename='images/project3.jpg') }}" class="card-img-top project-img" alt="Project 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Time Series Forecasting Model</h5>
+                        <p class="card-text">An advanced time series model for predicting stock prices and market trends.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Time Series</span>
+                            <span class="project-tag">LSTM</span>
+                            <span class="project-tag">Pandas</span>
+                        </div>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-3">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ url_for('projects') }}" class="btn btn-primary">View All Projects</a>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-primary text-white text-center">
+    <div class="container">
+        <h2 class="mb-4">Let's Work Together!</h2>
+        <p class="lead mb-4">I'm currently available for freelance projects, consulting, and full-time positions.</p>
+        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Contact Me</a>
+    </div>
+</section>
+{% endblock %} 

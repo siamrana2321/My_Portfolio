@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- About Header -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h1 class="section-title">About Me</h1>
+        <div class="row align-items-center">
+            <div class="col-md-5 mb-4 mb-md-0">
+                <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Mohammad Siam Ahmed Rana" class="img-fluid about-img animate-on-scroll">
+            </div>
+            <div class="col-md-7">
+                <div class="about-content animate-on-scroll">
+                    <p class="lead">I am Mohammad Siam Ahmed Rana, a passionate Data Scientist with a strong background in machine learning, statistical analysis, and data visualization.</p>
+                    <p>With a blend of technical expertise and business acumen, I specialize in transforming complex data into actionable insights that drive strategic decision-making. My approach combines rigorous analytical methods with creative problem-solving to deliver impactful solutions.</p>
+                    <div class="mt-4 d-flex">
+                        <a href="#" class="btn btn-outline-primary me-3">Download CV</a>
+                        <a href="{{ url_for('contact') }}" class="btn btn-primary">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education & Experience -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title">Education & Experience</h2>
+        
+        <!-- Experience Timeline -->
+        <h3 class="mb-4">Professional Experience</h3>
+        <ul class="timeline">
+            <li>
+                <div class="timeline-image">
+                    <h4>2021<br>Present</h4>
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Senior Data Scientist</h4>
+                        <h4 class="subheading">Tech Innovations Inc.</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p>Lead data scientist for customer analytics and predictive modeling projects. Developed machine learning models that increased customer retention by 25% and optimized marketing campaigns resulting in a 30% ROI improvement.</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-image">
+                    <h4>2018<br>2021</h4>
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Data Scientist</h4>
+                        <h4 class="subheading">DataDriven Solutions</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p>Designed and implemented end-to-end machine learning pipelines for various business applications. Created automated data processing workflows that reduced analysis time by 40% and improved accuracy by 15%.</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-image">
+                    <h4>2016<br>2018</h4>
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Data Analyst</h4>
+                        <h4 class="subheading">Global Analytics Corp</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p>Conducted exploratory data analysis and created interactive dashboards for business intelligence. Collaborated with cross-functional teams to identify key performance indicators and develop data-driven strategies.</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        
+        <!-- Education Timeline -->
+        <h3 class="mb-4 mt-5">Education</h3>
+        <ul class="timeline">
+            <li>
+                <div class="timeline-image">
+                    <h4>2014<br>2016</h4>
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Master of Science</h4>
+                        <h4 class="subheading">Data Science & Analytics</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p>University of Technology, GPA: 3.9/4.0</p>
+                        <p>Thesis: "Advanced Predictive Modeling Techniques for Time Series Data"</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-image">
+                    <h4>2010<br>2014</h4>
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Bachelor of Science</h4>
+                        <h4 class="subheading">Computer Science</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p>National University, GPA: 3.8/4.0</p>
+                        <p>Specialization in Artificial Intelligence and Machine Learning</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- Skills Overview -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title">My Expertise</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Technical Skills</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <h5>Programming Languages</h5>
+                                <p>Python, R, SQL, JavaScript</p>
+                            </li>
+                            <li class="mb-3">
+                                <h5>Machine Learning</h5>
+                                <p>Scikit-learn, TensorFlow, PyTorch, Keras</p>
+                            </li>
+                            <li class="mb-3">
+                                <h5>Data Processing</h5>
+                                <p>Pandas, NumPy, PySpark, Dask</p>
+                            </li>
+                            <li class="mb-3">
+                                <h5>Data Visualization</h5>
+                                <p>Matplotlib, Seaborn, Plotly, Tableau, Power BI</p>
+                            </li>
+                            <li>
+                                <h5>Big Data Technologies</h5>
+                                <p>Hadoop, Spark, Kafka, Airflow</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Domain Knowledge</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <h5>Statistical Analysis</h5>
+                                <p>Hypothesis testing, Regression analysis, Time series forecasting</p>
+                            </li>
+                            <li class="mb-3">
+                                <h5>Machine Learning Algorithms</h5>
+                                <p>Classification, Clustering, Regression, Ensemble methods</p>
+                            </li>
+                            <li class="mb-3">
+                                <h5>Deep Learning</h5>
+                                <p>Neural Networks, CNNs, RNNs, Transformers</p>
+                            </li>
+                            <li class="mb-3">
+                                <h5>Natural Language Processing</h5>
+                                <p>Text classification, Sentiment analysis, Named entity recognition</p>
+                            </li>
+                            <li>
+                                <h5>Business Intelligence</h5>
+                                <p>KPI development, Dashboard creation, Business strategy</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Personal Interests -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title">Personal Interests</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-book fa-3x mb-3 text-primary"></i>
+                        <h4>Continuous Learning</h4>
+                        <p>I'm passionate about staying updated with the latest advancements in data science and AI. I regularly participate in online courses, webinars, and read research papers.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-laptop-code fa-3x mb-3 text-primary"></i>
+                        <h4>Open Source Contribution</h4>
+                        <p>I actively contribute to open-source data science projects and enjoy collaborating with the global community to build better tools and libraries.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-hiking fa-3x mb-3 text-primary"></i>
+                        <h4>Outdoor Activities</h4>
+                        <p>When I'm not coding, I enjoy hiking, photography, and exploring nature. These activities help me maintain a balanced lifestyle and fresh perspective.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-primary text-white text-center">
+    <div class="container">
+        <h2 class="mb-4">Interested in working together?</h2>
+        <p class="lead mb-4">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Get In Touch</a>
+    </div>
+</section>
+{% endblock %} 
