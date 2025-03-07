@@ -1,107 +1,132 @@
-# Mohammad Siam Ahmed Rana - Data Scientist Portfolio
+# Data Scientist Portfolio Website
 
-A professional portfolio website for Mohammad Siam Ahmed Rana, built with Flask and designed to be easily deployed to GitHub Pages.
-
-## Overview
-
-This repository contains a professional portfolio website for a data scientist. The website is built with Flask but can be deployed as a static site to GitHub Pages using Frozen-Flask.
+A modern, responsive portfolio website template for data scientists. This template showcases your skills, projects, and experience in a professional and engaging way.
 
 ## Features
 
 - Responsive design that works on all devices
 - Modern and clean UI with smooth animations
-- Detailed sections for showcasing skills, projects, and experience
-- Contact form that works without a backend (using Formspree)
-- Automatic deployment to GitHub Pages using GitHub Actions
+- Sections for:
+  - Hero/Introduction
+  - About Me
+  - Skills
+  - Projects (with filtering)
+  - Work Experience
+  - Contact Form
+- Mobile-friendly navigation
+- Smooth scrolling
+- Project filtering system
+- Contact form (needs backend integration)
+- Social media integration
+- Animated elements on scroll
 
-## How to Use This Repository
+## Setup Instructions
 
-### 1. Clone the Repository
-
+1. Clone this repository:
 ```bash
 git clone https://github.com/yourusername/portfolio.git
+```
+
+2. Navigate to the project directory:
+```bash
 cd portfolio
 ```
 
-### 2. Set Up for Local Development
+3. Customize the content:
+   - Update `index.html` with your personal information
+   - Replace the profile image in the `images` folder
+   - Add your project images to the `images` folder
+   - Update social media links
+   - Modify the color scheme in `css/style.css` if desired
 
-```bash
-# Create a virtual environment
-python -m venv venv
+4. Deploy to GitHub Pages:
+   - Push your changes to GitHub
+   - Go to your repository settings
+   - Navigate to "Pages" section
+   - Select the branch you want to deploy (usually `main` or `master`)
+   - Save the settings
 
-# Activate the virtual environment
-# On Windows
-venv\Scripts\activate
-# On macOS/Linux
-source venv/bin/activate
+## Customization
 
-# Install dependencies
-pip install -r portfolio/requirements.txt
-
-# Run the development server
-python portfolio/run.py
+### Colors
+You can customize the color scheme by modifying the CSS variables in `css/style.css`:
+```css
+:root {
+    --primary-color: #0e76a8;
+    --secondary-color: #30475e;
+    --accent-color: #f05454;
+    --light-color: #f8f9fa;
+    --dark-color: #222831;
+    --text-color: #333;
+    --text-light: #777;
+    --border-color: #ddd;
+}
 ```
 
-Visit `http://127.0.0.1:5000/` in your browser to see the website.
+### Projects
+To add or modify projects, update the project cards in the Projects section of `index.html`. Each project card follows this structure:
+```html
+<div class="project-card" data-category="ml">
+    <div class="project-img">
+        <img src="images/project1.jpg" alt="Project 1">
+    </div>
+    <div class="project-info">
+        <h3>Project Title</h3>
+        <p>Project description</p>
+        <div class="project-tags">
+            <span>Technology 1</span>
+            <span>Technology 2</span>
+        </div>
+        <div class="project-links">
+            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+    </div>
+</div>
+```
 
-### 3. Customize the Portfolio
-
-- Update the content in the HTML templates to reflect your information
-- Replace the placeholder images in the `portfolio/static/images` directory
-- Modify the color scheme in `portfolio/static/css/style.css`
-- Update the Formspree form ID in `portfolio/templates/contact.html`
-
-### 4. Deploy to GitHub Pages
-
-#### Automatic Deployment (Recommended)
-
-1. Push your changes to GitHub:
-   ```bash
-   git add .
-   git commit -m "Update portfolio content"
-   git push
-   ```
-
-2. Enable GitHub Pages in your repository settings:
-   - Go to Settings > Pages
-   - Select the `gh-pages` branch as the source
-   - Click Save
-
-The GitHub Actions workflow will automatically build and deploy your site whenever you push changes to the main branch.
-
-#### Manual Deployment
-
-1. Generate the static site:
-   ```bash
-   cd portfolio
-   python build.py
-   ```
-
-2. The static site will be generated in the `build` directory
-3. Push the contents of the `build` directory to the `gh-pages` branch of your repository
-
-## Customization Guide
+### Skills
+Update the skills section in `index.html` to reflect your expertise. Each skill category follows this structure:
+```html
+<div class="skill-category">
+    <h3>Category Name</h3>
+    <div class="skill-items">
+        <div class="skill-item">
+            <div class="skill-info">
+                <p>Skill Name</p>
+                <p>90%</p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 90%"></div>
+            </div>
+        </div>
+    </div>
+</div>
+```
 
 ### Contact Form
+The contact form is currently set up to log form submissions to the console. To make it functional, you'll need to:
+1. Set up a backend server
+2. Update the form submission handler in `js/script.js`
+3. Add your server endpoint to handle the form data
 
-The contact form uses [Formspree](https://formspree.io/) to handle form submissions without a backend. To set it up:
+## Browser Support
 
-1. Create a free account on Formspree
-2. Create a new form and get your form ID
-3. Replace `your-formspree-id` in `portfolio/templates/contact.html` with your actual form ID
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Opera (latest)
 
-### Images
+## Dependencies
 
-Replace the placeholder images in the `portfolio/static/images` directory:
-
-- `profile.jpg`: Your professional photo
-- `hero-bg.jpg`: Background image for the hero section
-- `project1.jpg` to `project9.jpg`: Images for your projects
-
-### Social Media Links
-
-Update the social media links in the footer and contact page with your actual profiles.
+- Font Awesome 6.4.0 (for icons)
+- Google Fonts - Poppins (for typography)
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is open source and available under the MIT License.
+
+## Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page. 
