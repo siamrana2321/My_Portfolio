@@ -33,58 +33,6 @@ git clone https://github.com/yourusername/portfolio.git
 cd portfolio
 ```
 
-3. Customize the content:
-   - Update `index.html` with your personal information
-   - Replace the profile image in the `images` folder
-   - Add your project images to the `images` folder
-   - Update social media links
-   - Modify the color scheme in `css/style.css` if desired
-
-4. Deploy to GitHub Pages:
-   - Push your changes to GitHub
-   - Go to your repository settings
-   - Navigate to "Pages" section
-   - Select the branch you want to deploy (usually `main` or `master`)
-   - Save the settings
-
-## Customization
-
-### Colors
-You can customize the color scheme by modifying the CSS variables in `css/style.css`:
-```css
-:root {
-    --primary-color: #0e76a8;
-    --secondary-color: #30475e;
-    --accent-color: #f05454;
-    --light-color: #f8f9fa;
-    --dark-color: #222831;
-    --text-color: #333;
-    --text-light: #777;
-    --border-color: #ddd;
-}
-```
-
-### Projects
-To add or modify projects, update the project cards in the Projects section of `index.html`. Each project card follows this structure:
-```html
-<div class="project-card" data-category="ml">
-    <div class="project-img">
-        <img src="images/project1.jpg" alt="Project 1">
-    </div>
-    <div class="project-info">
-        <h3>Project Title</h3>
-        <p>Project description</p>
-        <div class="project-tags">
-            <span>Technology 1</span>
-            <span>Technology 2</span>
-        </div>
-        <div class="project-links">
-            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-        </div>
-    </div>
-</div>
-```
 
 ### Skills
 Update the skills section in `index.html` to reflect your expertise. Each skill category follows this structure:
