@@ -105,12 +105,6 @@ Update the skills section in `index.html` to reflect your expertise. Each skill 
 </div>
 ```
 
-### Contact Form
-The contact form is currently set up to log form submissions to the console. To make it functional, you'll need to:
-1. Set up a backend server
-2. Update the form submission handler in `js/script.js`
-3. Add your server endpoint to handle the form data
-
 ## Browser Support
 
 - Chrome (latest)
