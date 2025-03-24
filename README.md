@@ -33,39 +33,6 @@ git clone https://github.com/yourusername/portfolio.git
 cd portfolio
 ```
 
-
-### Skills
-Update the skills section in `index.html` to reflect your expertise. Each skill category follows this structure:
-```html
-<div class="skill-category">
-    <h3>Category Name</h3>
-    <div class="skill-items">
-        <div class="skill-item">
-            <div class="skill-info">
-                <p>Skill Name</p>
-                <p>90%</p>
-            </div>
-            <div class="progress-bar">
-                <div class="progress" style="width: 90%"></div>
-            </div>
-        </div>
-    </div>
-</div>
-```
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Opera (latest)
-
-## Dependencies
-
-- Font Awesome 6.4.0 (for icons)
-- Google Fonts - Poppins (for typography)
-
 ## License
 
 This project is open source and available under the MIT License.
