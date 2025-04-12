@@ -334,11 +334,22 @@ nav ul li a:hover::after {
     font-size: 1.5rem;
     color: var(--accent-color);
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .social-links a:hover {
     color: var(--accent-color-2);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
+    filter: drop-shadow(0 0 1px var(--accent-color));
+}
+
+@keyframes pulse {
+    0% {
+        filter: drop-shadow(0 0 1px var(--accent-color));
+    }
+    100% {
+        filter: drop-shadow(0 0 2px var(--accent-color));
+    }
 }
 
 .hero-buttons {
@@ -699,6 +710,16 @@ nav ul li a:hover::after {
 .contact-item i {
     font-size: 1.5rem;
     color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.contact-info .social-links {
+    margin-top: 10px;
+}
+
+.contact-info .social-links a:hover i {
+    filter: drop-shadow(0 0 1px var(--accent-color));
+    transform: translateY(-1px);
 }
 
 .contact-item p {
@@ -1674,4 +1695,19 @@ footer p {
     50% {
         opacity: 0;
     }
+}
+
+/* Apply glow to footer social links if they exist */
+footer .social-links a:hover {
+    filter: drop-shadow(0 0 1px var(--accent-color));
+    transform: translateY(-1px);
+}
+
+/* Apply glow to all icon links */
+a i.fab, a i.fas {
+    transition: all 0.3s ease;
+}
+
+a:hover i.fab, a:hover i.fas {
+    filter: drop-shadow(0 0 1px var(--accent-color));
 } 
