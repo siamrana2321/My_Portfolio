@@ -125,6 +125,8 @@ function initSlider() {
     const dots = document.querySelectorAll('.dot');
     let currentSlide = 0;
     const totalSlides = slides.length;
+    let touchStartX = 0;
+    let touchEndX = 0;
     
     // Set initial position immediately
     slider.style.transform = `translateX(0%)`;
@@ -135,6 +137,7 @@ function initSlider() {
             e.preventDefault();
             currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
             updateSliderPosition();
+            resetAutoSlide(); // Reset auto slide timer when user interacts
         });
     }
     
@@ -143,6 +146,7 @@ function initSlider() {
             e.preventDefault();
             currentSlide = (currentSlide + 1) % totalSlides;
             updateSliderPosition();
+            resetAutoSlide(); // Reset auto slide timer when user interacts
         });
     }
     
@@ -151,8 +155,36 @@ function initSlider() {
         dot.addEventListener('click', function() {
             currentSlide = parseInt(this.getAttribute('data-index'));
             updateSliderPosition();
+            resetAutoSlide(); // Reset auto slide timer when user interacts
         });
     });
+    
+    // Add touch swipe support for mobile
+    slider.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    
+    slider.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        handleSwipe();
+    }, { passive: true });
+    
+    // Handle swipe direction
+    function handleSwipe() {
+        const swipeThreshold = 50; // Minimum distance for a swipe
+        
+        if (touchStartX - touchEndX > swipeThreshold) {
+            // Swipe left, go to next slide
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSliderPosition();
+            resetAutoSlide();
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+            // Swipe right, go to previous slide
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSliderPosition();
+            resetAutoSlide();
+        }
+    }
     
     // Function to update slider position
     function updateSliderPosition() {
@@ -184,15 +216,63 @@ function initSlider() {
         clearInterval(autoSlideInterval);
     }
     
+    function resetAutoSlide() {
+        stopAutoSlide();
+        startAutoSlide();
+    }
+    
     // Start auto-sliding
     startAutoSlide();
     
-    // Pause auto-sliding when user interacts with controls
+    // Pause auto-sliding when user interacts with slider
     slider.addEventListener('mouseenter', stopAutoSlide);
     slider.addEventListener('mouseleave', startAutoSlide);
+    slider.addEventListener('touchstart', stopAutoSlide, { passive: true });
+    slider.addEventListener('touchend', startAutoSlide, { passive: true });
     
     // Update on window resize to ensure correct positioning
-    window.addEventListener('resize', updateSliderPosition);
+    window.addEventListener('resize', () => {
+        // Ensure the slider is positioned correctly at the current slide
+        updateSliderPosition();
+        
+        // Fix certification card heights if needed
+        adjustCertificationCardHeights();
+    });
+    
+    // Adjust certification card heights to ensure they have consistent heights
+    function adjustCertificationCardHeights() {
+        // Only do this for desktop and tablet views
+        if (window.innerWidth > 480) {
+            // Reset heights first
+            document.querySelectorAll('.certification-card').forEach(card => {
+                card.style.height = 'auto';
+            });
+            
+            // If we have certification cards, ensure they have consistent heights
+            const cards = document.querySelectorAll('.certification-card');
+            if (cards.length > 0) {
+                let maxHeight = 0;
+                
+                // Find max height
+                cards.forEach(card => {
+                    const height = card.offsetHeight;
+                    if (height > maxHeight) {
+                        maxHeight = height;
+                    }
+                });
+                
+                // Set all cards to max height
+                if (maxHeight > 0) {
+                    cards.forEach(card => {
+                        card.style.height = `${maxHeight}px`;
+                    });
+                }
+            }
+        }
+    }
+    
+    // Run the height adjustment on initial load
+    setTimeout(adjustCertificationCardHeights, 100);
 }
 
 // Back to top button functionality
@@ -250,6 +330,11 @@ function setupLazyLoading() {
                     if (src) {
                         img.src = src;
                         img.removeAttribute('data-src');
+                        
+                        // Add load event to handle fade-in effect
+                        img.addEventListener('load', () => {
+                            img.classList.add('loaded');
+                        });
                     }
                     
                     observer.unobserve(img);
@@ -257,10 +342,16 @@ function setupLazyLoading() {
             });
         }, imgOptions);
         
-        // Target all images with data-src attribute
+        // Target all images that have data-src attribute
         const lazyImages = document.querySelectorAll('img[data-src]');
         lazyImages.forEach(img => {
             imgObserver.observe(img);
+        });
+        
+        // Also target background images with data-bg attribute
+        const lazyBackgrounds = document.querySelectorAll('[data-bg]');
+        lazyBackgrounds.forEach(element => {
+            imgObserver.observe(element);
         });
     } else {
         // Fallback for browsers that don't support IntersectionObserver
@@ -269,7 +360,35 @@ function setupLazyLoading() {
             img.src = img.getAttribute('data-src');
             img.removeAttribute('data-src');
         });
+        
+        const lazyBackgrounds = document.querySelectorAll('[data-bg]');
+        lazyBackgrounds.forEach(element => {
+            const bg = element.getAttribute('data-bg');
+            if (bg) {
+                element.style.backgroundImage = `url(${bg})`;
+                element.removeAttribute('data-bg');
+            }
+        });
     }
+    
+    // Responsive image loading based on viewport width
+    function loadResponsiveImages() {
+        const respImages = document.querySelectorAll('img[data-srcset]');
+        
+        respImages.forEach(img => {
+            const srcset = img.getAttribute('data-srcset');
+            if (srcset) {
+                img.srcset = srcset;
+                img.removeAttribute('data-srcset');
+            }
+        });
+    }
+    
+    // Call responsive image loading
+    loadResponsiveImages();
+    
+    // Update on resize
+    window.addEventListener('resize', loadResponsiveImages);
 }
 
 // Projects filter functionality
@@ -307,6 +426,7 @@ function setupMobileMenu() {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const nav = document.querySelector('nav');
     const navLinks = document.querySelectorAll('nav ul li a');
+    const body = document.body;
     
     if (!mobileMenuToggle) return;
     
@@ -314,7 +434,15 @@ function setupMobileMenu() {
     mobileMenuToggle.addEventListener('click', () => {
         mobileMenuToggle.classList.toggle('active');
         nav.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
+        body.classList.toggle('menu-open');
+    });
+    
+    // Add touch event for mobile devices
+    mobileMenuToggle.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        mobileMenuToggle.classList.toggle('active');
+        nav.classList.toggle('active');
+        body.classList.toggle('menu-open');
     });
     
     // Close menu when a nav link is clicked
@@ -322,7 +450,14 @@ function setupMobileMenu() {
         link.addEventListener('click', () => {
             mobileMenuToggle.classList.remove('active');
             nav.classList.remove('active');
-            document.body.classList.remove('menu-open');
+            body.classList.remove('menu-open');
+        });
+        
+        // Add touch event for mobile devices
+        link.addEventListener('touchend', (e) => {
+            mobileMenuToggle.classList.remove('active');
+            nav.classList.remove('active');
+            body.classList.remove('menu-open');
         });
     });
     
@@ -335,7 +470,16 @@ function setupMobileMenu() {
         ) {
             mobileMenuToggle.classList.remove('active');
             nav.classList.remove('active');
-            document.body.classList.remove('menu-open');
+            body.classList.remove('menu-open');
+        }
+    });
+    
+    // Handle viewport resizing - if menu is open and screen is resized to desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && nav.classList.contains('active')) {
+            mobileMenuToggle.classList.remove('active');
+            nav.classList.remove('active');
+            body.classList.remove('menu-open');
         }
     });
 }
